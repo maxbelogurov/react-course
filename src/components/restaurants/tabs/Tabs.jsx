@@ -6,8 +6,9 @@ export default function Tabs({restaurants, activeRestaurant, onClick}) {
       {restaurants.map(restaurant =>
         <button
           key={ restaurant.id }
-          className={ activeRestaurant === restaurant.name ? 'btn active' : 'btn' }
-          onClick={ () => onClick(restaurant) }>
+          className={ activeRestaurant === restaurant.id ? 'btn active' : 'btn' }
+          onClick={ () => onClick(restaurant) }
+        >
           { restaurant.name }
         </button>
       )}

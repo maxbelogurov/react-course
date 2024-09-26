@@ -15,7 +15,7 @@ export default function App() {
       <main>
         <Tabs
           restaurants={ restaurants }
-          activeRestaurant={ restaurantActive.name }
+          activeRestaurant={ restaurantActive.id }
           onClick={ setRestaurantActive }
         />
         <Restaurant restaurant={ restaurantActive }/>
