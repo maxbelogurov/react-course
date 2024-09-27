@@ -19,6 +19,12 @@ export default function App() {
           onClick={ setRestaurantActive }
         />
         <Restaurant restaurant={ restaurantActive }/>
+
+        //demo for ProgressBar
+        <Restaurant restaurant={ restaurantActive }/>
+        <Restaurant restaurant={ restaurantActive }/>
+        <Restaurant restaurant={ restaurantActive }/>
+        <Restaurant restaurant={ restaurantActive }/>
       </main>
     </Layout>
   )
