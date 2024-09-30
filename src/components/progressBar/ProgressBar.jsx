@@ -12,6 +12,9 @@ export default function ProgressBar() {
 
   useEffect(() => {
     window.addEventListener('scroll', startProgressBar)
+    return () => {
+      window.removeEventListener('scroll', startProgressBar)
+    }
   }, [])
 
   return (
