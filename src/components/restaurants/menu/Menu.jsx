@@ -1,5 +1,5 @@
-import './Menu.css'
 import {useState} from "react";
+import Counter from "../../common/counter/Counter";
 
 export default function Menu({menu}) {
   const [count, setCount] = useState(0)
@@ -14,11 +14,11 @@ export default function Menu({menu}) {
   return (
     <div>
       <p>{ menu.name } - <span>{ menu.price } $</span></p>
-      <div>
-        <button onClick={decreaseCount}>-</button>
-        <span className={'menu-count'}>{count}</span>
-        <button onClick={increaseCount}>+</button>
-      </div>
+      <Counter
+        count={count}
+        increase={increaseCount}
+        decrease={decreaseCount}
+        />
       <br/>
     </div>
   )
