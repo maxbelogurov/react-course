@@ -1,4 +1,4 @@
-import './ProgressBar.css'
+import styles from './ProgressBar.module.scss'
 import {useEffect} from "react";
 export default function ProgressBar() {
 
@@ -18,6 +18,6 @@ export default function ProgressBar() {
   }, [])
 
   return (
-    <div id={'progressBar'}></div>
+    <div id={'progressBar'} className={styles.progress_bar}></div>
   )
 }

@@ -1,7 +1,8 @@
-import './ReviewForm.css'
+import styles from './ReviewForm.module.scss'
 import Counter from "../../common/counter/Counter";
+import Button from "../../ui/Button/Button";
 import {useState, useReducer} from "react";
-
+import classNames from "classnames";
 const FORM_VALUE = {
   name: '',
   review: '',
@@ -45,9 +46,9 @@ export default function ReviewForm() {
 
   return (
     <div>
-    <form className={'review-form'}>
-      <div className={'form-section'}>
-        <label htmlFor="name">Name</label><br/>
+    <form className={styles.review_form}>
+      <div className={styles.form_section}>
+        <label className={styles.form_label} htmlFor="name">Name</label>
         <input
           type="text"
           id="name"
@@ -56,8 +57,8 @@ export default function ReviewForm() {
         />
       </div>
 
-      <div className={'form-section'}>
-        <span>Rating</span><br/>
+      <div className={styles.form_section}>
+        <span className={styles.form_label}>Rating</span>
         <Counter
           count={rating}
           decrease={ () => dispatch({ type: 'ratingDecrease' }) }
@@ -65,8 +66,8 @@ export default function ReviewForm() {
         />
       </div>
 
-      <div className={'form-section'}>
-        <label htmlFor="review">Review</label><br/>
+      <div className={styles.form_section}>
+        <label className={styles.form_label} htmlFor="review">Review</label>
         <textarea
           id="review"
           value={review}
@@ -74,12 +75,9 @@ export default function ReviewForm() {
         />
       </div>
 
-      <div className={'form-section form-footer'}>
-        <button type={'button'}>Send</button>
-        <button
-          type={'button'}
-          onClick={ () => dispatch({ type: 'resetForm' }) }
-        >Clear</button>
+      <div className={classNames(styles.form_section, styles.form_footer)}>
+        <Button orange={true}>Send</Button>
+        <Button onClick={ () => dispatch({ type: 'resetForm' })}>Clear</Button>
       </div>
 
     </form>
