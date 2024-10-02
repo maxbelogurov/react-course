@@ -1,0 +1,28 @@
+.review_form {
+
+}
+.form_section {
+    margin-bottom: 1rem;
+    .form_label {
+        margin-bottom: .5rem;
+        display: block;
+    }
+    input, textarea {
+        padding: .5rem;
+        border: 1px solid #ccc;
+        border-radius: .3rem;
+    }
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    input:focus-visible,
+    textarea:focus-visible {
+        outline: none;
+        border: 1px solid var(--orange-light);
+    }
+}
+.form_footer {
+    display: flex;
+    justify-content: space-between;
+}
