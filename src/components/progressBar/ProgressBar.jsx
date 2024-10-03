@@ -1,13 +1,15 @@
 import styles from './ProgressBar.module.scss'
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+
 export default function ProgressBar() {
+  const [barWidth, setBarWidth] = useState(0)
 
   function startProgressBar() {
     const webPageHeight = document.documentElement.scrollHeight
     const windowHeight = window.innerHeight
     const scrollPercent = ( pageYOffset * 100 / (webPageHeight - windowHeight) )
     const progressBar = document.getElementById('progressBar')
-    progressBar.style.width = Math.round(scrollPercent) + '%'
+    setBarWidth(Math.round(scrollPercent))
   }
 
   useEffect(() => {
@@ -17,7 +19,8 @@ export default function ProgressBar() {
     }
   }, [])
 
+
   return (
-    <div id={'progressBar'} className={styles.progressBar}></div>
+    <div style={{ width: barWidth + '%' }} className={styles.progressBar}></div>
   )
 }
