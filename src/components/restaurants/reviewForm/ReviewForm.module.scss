@@ -1,9 +1,6 @@
-.review_form {
-
-}
-.form_section {
+.formSection {
     margin-bottom: 1rem;
-    .form_label {
+    .formLabel {
         margin-bottom: .5rem;
         display: block;
     }
@@ -22,7 +19,7 @@
         border: 1px solid var(--orange-light);
     }
 }
-.form_footer {
+.formFooter {
     display: flex;
     justify-content: space-between;
 }

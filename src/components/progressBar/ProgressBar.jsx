@@ -18,6 +18,6 @@ export default function ProgressBar() {
   }, [])
 
   return (
-    <div id={'progressBar'} className={styles.progress_bar}></div>
+    <div id={'progressBar'} className={styles.progressBar}></div>
   )
 }

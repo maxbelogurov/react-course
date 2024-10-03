@@ -1,4 +1,4 @@
-.menu_item {
+.menuItem {
   width: calc(100% / 4 - 1rem);
   min-height: 150px;
   background-color: #eee;
@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.menu_item_name {
+.menuItemName {
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -18,12 +18,12 @@
   margin-right: 4px;
   color: var(--text-muted);
 }
-.menu_item_footer {
+.menuItemFooter {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.menu_item_price {
+.menuItemPrice {
   color: var(--orange-dark);
   font-weight: bold;
   font-size: 1.2rem;

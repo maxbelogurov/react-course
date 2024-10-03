@@ -46,9 +46,9 @@ export default function ReviewForm() {
 
   return (
     <div>
-    <form className={styles.review_form}>
-      <div className={styles.form_section}>
-        <label className={styles.form_label} htmlFor="name">Name</label>
+    <form className={styles.reviewForm}>
+      <div className={styles.formSection}>
+        <label className={styles.formLabel} htmlFor="name">Name</label>
         <input
           type="text"
           id="name"
@@ -57,8 +57,8 @@ export default function ReviewForm() {
         />
       </div>
 
-      <div className={styles.form_section}>
-        <span className={styles.form_label}>Rating</span>
+      <div className={styles.formSection}>
+        <span className={styles.formLabel}>Rating</span>
         <Counter
           count={rating}
           decrease={ () => dispatch({ type: 'ratingDecrease' }) }
@@ -66,8 +66,8 @@ export default function ReviewForm() {
         />
       </div>
 
-      <div className={styles.form_section}>
-        <label className={styles.form_label} htmlFor="review">Review</label>
+      <div className={styles.formSection}>
+        <label className={styles.formLabel} htmlFor="review">Review</label>
         <textarea
           id="review"
           value={review}
@@ -75,7 +75,7 @@ export default function ReviewForm() {
         />
       </div>
 
-      <div className={classNames(styles.form_section, styles.form_footer)}>
+      <div className={classNames(styles.formSection, styles.formFooter)}>
         <Button orange={true}>Send</Button>
         <Button onClick={ () => dispatch({ type: 'resetForm' })}>Clear</Button>
       </div>

@@ -13,15 +13,15 @@ export default function Menu({menu}) {
   }
 
   return (
-    <div className={styles.menu_item}>
+    <div className={styles.menuItem}>
       <div>
-        <p className={styles.menu_item_name}>{ menu.name }</p>
+        <p className={styles.menuItemName}>{ menu.name }</p>
         {menu.ingredients.length > 0 ? menu.ingredients.map(ingredient =>
           <span key={ingredient} className={styles.ingredient}>{ingredient}</span>
         ): null}
       </div>
-      <div className={styles.menu_item_footer}>
-        <div className={styles.menu_item_price}>$ { menu.price }</div>
+      <div className={styles.menuItemFooter}>
+        <div className={styles.menuItemPrice}>$ { menu.price }</div>
         <Counter
           count={count}
           increase={increaseCount}

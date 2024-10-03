@@ -1,4 +1,4 @@
-.review_item {
+.reviewItem {
   padding: 1rem;
   border: 1px solid var(--orange-light);
   border-radius: .3rem;
@@ -7,7 +7,7 @@
   flex-direction: column;
   gap: 1rem;
 }
-.review_header {
+.reviewHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -17,10 +17,10 @@
     margin-right: .5rem;
   }
 }
-.review_name {
+.reviewName {
   margin-right: auto;
 }
-.review_text {
+.reviewText {
   font-style: italic;
   font-size: 1.2rem;
 }
