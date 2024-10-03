@@ -1,3 +1,4 @@
+import styles from './Menu.module.scss'
 import {useState} from "react";
 import Counter from "../../common/counter/Counter";
 
@@ -12,14 +13,21 @@ export default function Menu({menu}) {
   }
 
   return (
-    <div>
-      <p>{ menu.name } - <span>{ menu.price } $</span></p>
-      <Counter
-        count={count}
-        increase={increaseCount}
-        decrease={decreaseCount}
+    <div className={styles.menuItem}>
+      <div>
+        <p className={styles.menuItemName}>{ menu.name }</p>
+        {menu.ingredients.length > 0 ? menu.ingredients.map(ingredient =>
+          <span key={ingredient} className={styles.ingredient}>{ingredient}</span>
+        ): null}
+      </div>
+      <div className={styles.menuItemFooter}>
+        <div className={styles.menuItemPrice}>$ { menu.price }</div>
+        <Counter
+          count={count}
+          increase={increaseCount}
+          decrease={decreaseCount}
         />
-      <br/>
+      </div>
     </div>
   )
 }

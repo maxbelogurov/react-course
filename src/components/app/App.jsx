@@ -1,4 +1,3 @@
-import './App.css'
 import Layout from "../layout/Layout";
 import Tabs from "../restaurants/tabs/Tabs";
 import Restaurant from "../restaurants/restaurant/Restaurant";
@@ -18,12 +17,6 @@ export default function App() {
           activeRestaurant={ restaurantActive.id }
           onClick={ setRestaurantActive }
         />
-        <Restaurant restaurant={ restaurantActive }/>
-
-        //demo for ProgressBar
-        <Restaurant restaurant={ restaurantActive }/>
-        <Restaurant restaurant={ restaurantActive }/>
-        <Restaurant restaurant={ restaurantActive }/>
         <Restaurant restaurant={ restaurantActive }/>
       </main>
     </Layout>

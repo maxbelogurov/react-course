@@ -1,16 +1,18 @@
-import './Tabs.css'
+import styles from './Tabs.module.scss'
+import classNames from "classnames";
+import Button from "../../ui/Button/Button";
 
 export default function Tabs({restaurants, activeRestaurant, onClick}) {
   return (
-    <div>
+    <div className={styles.tabs}>
       {restaurants.map(restaurant =>
-        <button
-          key={ restaurant.id }
-          className={ activeRestaurant === restaurant.id ? 'btn active' : 'btn' }
-          onClick={ () => onClick(restaurant) }
-        >
-          { restaurant.name }
-        </button>
+          <Button
+            key={ restaurant.id }
+            orange={ activeRestaurant === restaurant.id ? true : false }
+            onClick={ () => onClick(restaurant) }
+          >
+            { restaurant.name }
+          </Button>
       )}
     </div>
   )

@@ -1,0 +1,26 @@
+.reviewItem {
+  padding: 1rem;
+  border: 1px solid var(--orange-light);
+  border-radius: .3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.reviewHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  svg {
+    max-height: 1rem;
+    color: var(--text-muted);
+    margin-right: .5rem;
+  }
+}
+.reviewName {
+  margin-right: auto;
+}
+.reviewText {
+  font-style: italic;
+  font-size: 1.2rem;
+}

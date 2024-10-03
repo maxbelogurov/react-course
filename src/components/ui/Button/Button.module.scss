@@ -1,0 +1,14 @@
+.btn {
+  border: 1px solid #ccc;
+  border-radius: .3rem;
+  padding: 0.5rem 2rem;
+  transition: .3s;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 4px #ccc;
+  }
+  &_orange {
+    background: var(--orange-light);
+    border: 1px solid var(--orange-dark);
+  }
+}

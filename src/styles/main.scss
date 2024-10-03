@@ -1,0 +1,25 @@
+@import "reset";
+:root {
+  --text-muted: #666;
+  --orange: #ef892b;
+  --orange-dark: #e27511;
+  --orange-light: #f5a55c;
+}
+p {
+  margin-bottom: .5rem;
+  margin-top: 0;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 1rem;
+  font-size: 16px;
+}
+footer {
+  margin-top: auto;
+}
+h1 {
+  font-size: 3rem;
+  padding-bottom: 1rem;
+}
