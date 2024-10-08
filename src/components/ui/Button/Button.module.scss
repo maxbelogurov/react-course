@@ -11,4 +11,12 @@
     background: var(--orange-light);
     border: 1px solid var(--orange-dark);
   }
+  &_dark {
+    color: var(--orange-light);
+    background: #333;
+  }
+  &_orange.btn_dark {
+    background: var(--orange-dark);
+    background: #000;
+  }
 }

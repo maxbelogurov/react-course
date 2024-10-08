@@ -1,9 +1,11 @@
 import styles from './Menu.module.scss'
-import {useState} from "react";
+import {useContext, useState} from "react";
 import Counter from "../../common/counter/Counter";
+import {UserContext} from "../../userContext/UserContext";
 
 export default function Menu({menu}) {
   const [count, setCount] = useState(0)
+  const { user } = useContext(UserContext);
 
   function increaseCount() {
     count < 5 ? setCount(count + 1) : null
@@ -22,11 +24,14 @@ export default function Menu({menu}) {
       </div>
       <div className={styles.menuItemFooter}>
         <div className={styles.menuItemPrice}>$ { menu.price }</div>
-        <Counter
-          count={count}
-          increase={increaseCount}
-          decrease={decreaseCount}
-        />
+        {
+          user.length > 0 &&
+          <Counter
+            count={count}
+            increase={increaseCount}
+            decrease={decreaseCount}
+          />
+        }
       </div>
     </div>
   )
