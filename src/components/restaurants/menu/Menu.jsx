@@ -3,9 +3,15 @@ import {useContext, useState} from "react";
 import Counter from "../../common/counter/Counter";
 import {UserContext} from "../../userContext/UserContext";
 
-export default function Menu({menu}) {
+import {useSelector} from "react-redux";
+import {getMenuById} from "../../../redux/menu"
+
+export default function Menu({id}) {
   const [count, setCount] = useState(0)
   const { user } = useContext(UserContext);
+  const menu = useSelector((state) => getMenuById(state, id))
+
+  // const {}
 
   function increaseCount() {
     count < 5 ? setCount(count + 1) : null
