@@ -1,23 +1,27 @@
 import styles from './Menu.module.scss'
-import {useContext, useState} from "react";
+import {useContext} from "react";
 import Counter from "../../common/counter/Counter";
 import {UserContext} from "../../userContext/UserContext";
 
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {getMenuById} from "../../../redux/menu"
+import {addItem, decreaseItem, getMenuQuantityInCartById} from '../../../redux/cart';
 
 export default function Menu({id}) {
-  const [count, setCount] = useState(0)
   const { user } = useContext(UserContext);
   const menu = useSelector((state) => getMenuById(state, id))
-
-  // const {}
+  const count = useSelector((state) => getMenuQuantityInCartById(state, id))
+  const dispatch = useDispatch();
 
   function increaseCount() {
-    count < 5 ? setCount(count + 1) : null
+    if (count < 5) {
+      dispatch(addItem({...menu}))
+    }
   }
   function decreaseCount() {
-    count > 0 ? setCount(count - 1) : null
+    if (count > 0) {
+      dispatch(decreaseItem({...menu}))
+    }
   }
 
   return (

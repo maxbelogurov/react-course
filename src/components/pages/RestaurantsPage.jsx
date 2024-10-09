@@ -1,9 +1,12 @@
 import {useState} from "react";
 import Tabs from "../restaurants/tabs/Tabs";
 import Restaurant from "../restaurants/restaurant/Restaurant";
+import Cart from '../cart/Cart';
+import styles from "./RestaurantsPage.module.scss"
+
 import {useSelector} from "react-redux";
 import { getRestaurantsIds } from "../../redux/restaurants";
-// import {restaurants} from "../../constants/mock";
+
 
 
 
@@ -18,7 +21,10 @@ export default function RestaurantsPage() {
         activeId={restaurantIdActive}
         onClick={setRestaurantIdActive}
       />
-      <Restaurant id={restaurantIdActive}/>
+      <div className={styles.restaurantsRow}>
+        <Restaurant id={restaurantIdActive}/>
+        <Cart />
+      </div>
     </>
   )
 }
