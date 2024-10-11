@@ -10,32 +10,7 @@
   margin-bottom: 2rem;
   text-align: center;
 }
-.cartItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: .5rem;
-  gap: 1rem;
-  &Body {
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  &Price {
-    color: var(--orange-dark);
-    padding: 0 1rem;
-    font-weight: bold;
-  }
-}
-.cartCounter {
-  margin-left: auto;
-}
-.removeBtn {
-  padding: 0px 5px 3px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  cursor: pointer;
-}
+
 .cartFooter {
   margin-top: 1rem;
   padding-top: .5rem;

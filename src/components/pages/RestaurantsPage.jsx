@@ -11,7 +11,7 @@ import { getRestaurantsIds } from "../../redux/restaurants";
 
 
 export default function RestaurantsPage() {
-  const restaurantsIds = Object.values(useSelector(getRestaurantsIds));
+  const restaurantsIds = useSelector(getRestaurantsIds);
 
   const [restaurantIdActive, setRestaurantIdActive] = useState(restaurantsIds[0])
 

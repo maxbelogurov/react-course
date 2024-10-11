@@ -8,8 +8,7 @@ export const cartSlice = createSlice({
   selectors: {
     getCartItems: (state) => state.items,
     getMenuQuantityInCartById: (state, id) => {
-      const existItem = state.items[id]
-      return existItem ? state.items[id].quantity : 0
+      return state.items[id]?.quantity || 0
     },
     getCartTotal: (state) => {
       return Object.values(state.items).reduce((total, item) => {

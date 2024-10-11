@@ -1,5 +1,6 @@
 import styles from "./Cart.module.scss"
 import Counter from '../common/counter/Counter';
+import CartItem from "./cartItem/CartItem";
 import {useSelector, useDispatch} from 'react-redux';
 import {addItem, decreaseItem, removeItem, clearCart, getCartItems, getCartTotal} from '../../redux/cart';
 
@@ -7,13 +8,6 @@ export default function Cart() {
   const dispatch = useDispatch()
   const items = useSelector(getCartItems)
   const total = useSelector(getCartTotal)
-
-  const increaseCount = (item) => {
-    dispatch(addItem({...item}))
-  }
-  function decreaseCount(item) {
-    dispatch(decreaseItem({...item}))
-  }
 
   if (Object.keys(items).length === 0) {
     return (
@@ -29,24 +23,7 @@ export default function Cart() {
       <div>
         <ul>
           {Object.entries(items).map( ([id, item]) =>
-            <li className={styles.cartItem} key={id}>
-              <div className={styles.cartItemBody}>
-                {item.name}
-                <span className={styles.cartItemPrice}>
-                  {item.price} $
-                </span>
-                <div className={styles.cartCounter}>
-                  <Counter
-                    count={item.quantity}
-                    increase={() => increaseCount({...item, id})}
-                    decrease={() => decreaseCount({...item, id})}
-                  />
-                </div>
-
-              </div>
-              <a className={styles.removeBtn}
-                 onClick={() => dispatch(removeItem(id))}>x</a>
-            </li>
+            <CartItem key={id} item={item} id={id}/>
           )}
         </ul>
         <div className={styles.cartFooter}>
