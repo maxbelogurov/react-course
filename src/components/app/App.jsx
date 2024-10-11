@@ -1,31 +1,24 @@
-import Layout from "../layout/Layout";
-import Tabs from "../restaurants/tabs/Tabs";
-import Restaurant from "../restaurants/restaurant/Restaurant";
+import {Provider} from "react-redux";
+import {store} from "../../redux/store";
 import { ThemeContextProvider } from "../themeContext/ThemeContextProvider";
 import { UserContextProvider } from "../userContext/UserContextProvider";
+import Layout from "../layout/Layout";
+import RestaurantsPage from "../pages/RestaurantsPage"
 
-import {useState} from "react";
-
-import {restaurants} from "../../constants/mock";
 
 export default function App() {
-  const [restaurantActive, setRestaurantActive] = useState(restaurants[0])
-
   return (
-    <ThemeContextProvider>
-      <UserContextProvider>
-        <Layout>
-          <main>
-            <Tabs
-              restaurants={ restaurants }
-              activeRestaurant={ restaurantActive.id }
-              onClick={ setRestaurantActive }
-            />
-            <Restaurant restaurant={ restaurantActive }/>
-          </main>
-        </Layout>
-      </UserContextProvider>
-    </ThemeContextProvider>
+    <Provider store={store}>
+      <ThemeContextProvider>
+        <UserContextProvider>
+          <Layout>
+            <main>
+              <RestaurantsPage/>
+            </main>
+          </Layout>
+        </UserContextProvider>
+      </ThemeContextProvider>
+    </Provider>
   )
 }
 

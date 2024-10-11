@@ -1,0 +1,21 @@
+.cartWrap {
+  width: 25%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+.cartTitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cartFooter {
+  margin-top: 1rem;
+  padding-top: .5rem;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
