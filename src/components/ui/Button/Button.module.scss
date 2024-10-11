@@ -3,6 +3,7 @@
   border-radius: .3rem;
   padding: 0.5rem 2rem;
   transition: .3s;
+  user-select: none;
   &:hover {
     cursor: pointer;
     box-shadow: 2px 2px 4px #ccc;
