@@ -4,6 +4,7 @@ import {ThemeContext} from "../themeContext/ThemeContext";
 import {UserContext} from "../userContext/UserContext";
 import MainNav from '../mainNav/MainNav';
 import Button from "../ui/Button/Button";
+import WatchDisplay from '../watchDisplay/WatchDisplay'
 
 export default function Header() {
 
@@ -13,6 +14,7 @@ export default function Header() {
     <header className={styles.header}>
       <h1>React course</h1>
       <MainNav/>
+      <WatchDisplay/>
       <div className={styles.headerRight}>
         {user.length > 0 && `Hi, ${user}`}
         <Button

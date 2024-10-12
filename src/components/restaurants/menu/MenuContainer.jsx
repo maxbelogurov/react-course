@@ -1,8 +1,9 @@
 import styles from './MenuContainer.module.scss'
-import Menu from './Menu'
+import MenuDetail from './MenuDetail'
 import {useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {getRestaurantById} from '../../../redux/restaurants';
+import MenuTab from './MenuTab';
 
 export default function MenuContainer() {
   const { restaurantId } = useParams()
@@ -13,7 +14,7 @@ export default function MenuContainer() {
   return (
     <div className={styles.menuWrap}>
       {restaurantMenu.map(menuId =>
-        <Menu key={menuId} id={menuId}/>
+        <MenuTab key={menuId} id={menuId}/>
       )}
     </div>
   )

@@ -7,6 +7,7 @@ import HomePage from '../pages/HomePage';
 import RestaurantsPage from "../pages/RestaurantsPage"
 import Restaurant from "../restaurants/restaurant/Restaurant"
 import MenuContainer from '../restaurants/menu/MenuContainer';
+import MenuDetail from '../restaurants/menu/MenuDetail';
 
 import {createBrowserRouter, RouterProvider, Navigate} from 'react-router-dom';
 import ReviewContainer from '../restaurants/review/ReviewContainer';
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
               },
               {
                 path: 'menu',
-                element: <MenuContainer/>
+                element: <MenuContainer/>,
               },
               {
                 path: 'reviews',
@@ -44,7 +45,11 @@ const router = createBrowserRouter([
             ]
           }
         ]
-      }
+      },
+      {
+        path: 'dish/:menuId',
+        element: <MenuDetail/>,
+      },
     ]
   },
 ]);
