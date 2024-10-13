@@ -1,12 +1,12 @@
 import styles from './Review.module.scss'
 
 import {useSelector} from "react-redux";
-import {getReviewById} from "../../../redux/reviews";
-import {getUserById} from "../../../redux/users";
+import {selectReviewById} from "../../../redux/reviews";
+import {selectUserById} from "../../../redux/users";
 
 export default function Review({id}) {
-  const review = useSelector((state) =>  getReviewById(state, id))
-  const user = useSelector((state) => getUserById(state, review.userId))
+  const review = useSelector((state) =>  selectReviewById(state, id))
+  const user = useSelector((state) => selectUserById(state, review.userId))
 
   return (
     <div className={styles.reviewItem}>

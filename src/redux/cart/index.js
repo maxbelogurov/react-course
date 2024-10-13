@@ -6,11 +6,11 @@ export const cartSlice = createSlice({
     items: {},
   },
   selectors: {
-    getCartItems: (state) => state.items,
-    getMenuQuantityInCartById: (state, id) => {
+    selectCartItems: (state) => state.items,
+    selectMenuQuantityInCartById: (state, id) => {
       return state.items[id]?.quantity || 0
     },
-    getCartTotal: (state) => {
+    selectCartTotal: (state) => {
       return Object.values(state.items).reduce((total, item) => {
         return total + item.price * item.quantity
       }, 0);
@@ -46,5 +46,5 @@ export const cartSlice = createSlice({
     },
   }
 })
-export const { getCartItems, getCartTotal, getMenuQuantityInCartById } = cartSlice.selectors;
+export const { selectCartItems, selectCartTotal, selectMenuQuantityInCartById } = cartSlice.selectors;
 export const { addItem, decreaseItem, removeItem, clearCart } = cartSlice.actions;

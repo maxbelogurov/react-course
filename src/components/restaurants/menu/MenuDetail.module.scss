@@ -1,5 +1,5 @@
 .menuItem {
-  width: calc(100% / 4 - 1rem);
+  margin: 1rem;
   min-height: 150px;
   background-color: #eee;
   border-radius: .5rem;
@@ -8,10 +8,22 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.backBtn {
+  display: inline-flex;
+  color: #333333;
+  user-select: none;
+  text-decoration: none;
+  gap: 4px;
+  &:hover {
+    color: var(--orange-dark)
+  }
+}
 .menuItemName {
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333333;
 }
 .ingredient {
   padding: 2px;
@@ -21,7 +33,7 @@
 .menuItemFooter {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 2rem;
 }
 .menuItemPrice {
   color: var(--orange-dark);

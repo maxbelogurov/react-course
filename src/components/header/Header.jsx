@@ -2,7 +2,9 @@ import styles from './Header.module.scss'
 import { useContext } from 'react';
 import {ThemeContext} from "../themeContext/ThemeContext";
 import {UserContext} from "../userContext/UserContext";
+import MainNav from '../mainNav/MainNav';
 import Button from "../ui/Button/Button";
+import WatchDisplay from '../watchDisplay/WatchDisplay'
 
 export default function Header() {
 
@@ -10,7 +12,9 @@ export default function Header() {
   const { user, logInUser, logOutUser } = useContext(UserContext);
   return (
     <header className={styles.header}>
-      <h1>Restaurants</h1>
+      <h1>React course</h1>
+      <MainNav/>
+      <WatchDisplay/>
       <div className={styles.headerRight}>
         {user.length > 0 && `Hi, ${user}`}
         <Button

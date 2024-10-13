@@ -1,16 +1,19 @@
-import styles from './Menu.module.scss'
+import styles from './MenuDetail.module.scss'
 import {useContext} from "react";
 import Counter from "../../common/counter/Counter";
+import ArrowBack from "../../icons/ArrowBack"
 import {UserContext} from "../../userContext/UserContext";
 
 import {useSelector, useDispatch} from "react-redux";
-import {getMenuById} from "../../../redux/menu"
-import {addItem, decreaseItem, getMenuQuantityInCartById} from '../../../redux/cart';
+import {selectMenuById} from "../../../redux/menu"
+import {addItem, decreaseItem, selectMenuQuantityInCartById} from '../../../redux/cart';
+import {useParams, Link} from 'react-router-dom';
 
-export default function Menu({id}) {
+export default function MenuDetail() {
+  const { menuId } = useParams()
   const { user } = useContext(UserContext);
-  const menu = useSelector((state) => getMenuById(state, id))
-  const count = useSelector((state) => getMenuQuantityInCartById(state, id))
+  const menu = useSelector((state) => selectMenuById(state, menuId))
+  const count = useSelector((state) => selectMenuQuantityInCartById(state, menuId))
   const dispatch = useDispatch();
 
   function increaseCount() {
@@ -26,6 +29,12 @@ export default function Menu({id}) {
 
   return (
     <div className={styles.menuItem}>
+      <Link to={-1} className={styles.backBtn}>
+        <ArrowBack/>
+        <span>
+          back
+        </span>
+      </Link>
       <div>
         <p className={styles.menuItemName}>{ menu.name }</p>
         {menu.ingredients.length > 0 ? menu.ingredients.map(ingredient =>
