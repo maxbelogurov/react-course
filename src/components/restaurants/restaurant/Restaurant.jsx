@@ -1,14 +1,14 @@
 import styles from './Restaurant.module.scss'
 
 import {useSelector} from "react-redux";
-import {getRestaurantById} from "../../../redux/restaurants";
+import {selectRestaurantById} from "../../../redux/restaurants";
 
 import {useParams, Outlet, NavLink} from 'react-router-dom';
 
 
 export default function Restaurant() {
   const { restaurantId } = useParams()
-  const restaurant = useSelector((state) => getRestaurantById(state, restaurantId) )
+  const restaurant = useSelector((state) => selectRestaurantById(state, restaurantId) )
 
   return (
     <div className={styles.restaurant}>

@@ -14,8 +14,8 @@ export const menuSlice = createSlice({
     name: 'menu',
     initialState,
     selectors: {
-      getMenuById: (state, id) => state.entities[id]
+      selectMenuById: (state, id) => state.entities[id]
     }
   })
 
-export const { getMenuById } = menuSlice.selectors;
+export const { selectMenuById } = menuSlice.selectors;

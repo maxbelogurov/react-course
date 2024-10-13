@@ -3,12 +3,12 @@ import Review from './Review'
 import ReviewForm from '../reviewForm/ReviewForm';
 import {useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux';
-import {getRestaurantById} from '../../../redux/restaurants';
+import {selectRestaurantById} from '../../../redux/restaurants';
 
 
 export default function ReviewContainer() {
   const { restaurantId } = useParams()
-  const restaurantReviews = useSelector((state) => getRestaurantById(state, restaurantId) ).reviews
+  const restaurantReviews = useSelector((state) => selectRestaurantById(state, restaurantId) ).reviews
 
   if (restaurantReviews.length === 0) { return null }
 
