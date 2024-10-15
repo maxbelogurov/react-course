@@ -3,7 +3,7 @@ export default function HomePage() {
     <div>
       <h4>Main page for Restaurants project</h4>
       <p>
-        This is my first react project. If you want select menu's element and put it in card, you need press 'Login' in header.<br/>
+        This is my first react project. If you want select element of menu and put it in card, you need press <b>Login</b> in header.<br/>
       </p>
     </div>
   )

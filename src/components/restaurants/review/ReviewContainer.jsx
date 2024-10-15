@@ -21,7 +21,7 @@ export default function ReviewContainer() {
       </div>
 
       <div className={styles.reviewForm}>
-        <h2 className={styles.reviewsTitle}>Let's write a review</h2>
+        <h2 className={styles.reviewsTitle}>Write a review</h2>
         <ReviewForm key={restaurantId}/>
       </div>
     </>

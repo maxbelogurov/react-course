@@ -1,5 +1,4 @@
 import styles from './MenuContainer.module.scss'
-import MenuDetail from './MenuDetail'
 import {useParams} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {selectRestaurantById} from '../../../redux/restaurants';
