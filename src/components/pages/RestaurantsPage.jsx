@@ -2,11 +2,29 @@ import RestaurantTab from "../restaurants/tab/RestaurantTab"
 import styles from "./RestaurantsPage.module.scss"
 import { Outlet } from 'react-router-dom'
 
-import {useSelector} from "react-redux";
-import { selectRestaurantsIds } from "../../redux/restaurants";
+import {useDispatch, useSelector} from "react-redux";
+import { selectRestaurantsIds, selectRestaurantsRequestStatus } from "../../redux/restaurants";
+import { useEffect } from "react";
+import { getRestaurants } from "../../redux/restaurants/get-restaurants";
 
 export default function RestaurantsPage() {
+  const dispatch = useDispatch();
   const restaurantsIds = useSelector(selectRestaurantsIds);
+  const requestStatus = useSelector(selectRestaurantsRequestStatus);
+
+  useEffect(() => {
+    if (restaurantsIds.length === 0) {
+      dispatch(getRestaurants());
+    }
+  },[dispatch])
+
+  if (requestStatus === 'pending') {
+    return <div>Loading...</div>
+  }
+  
+  if (requestStatus === 'rejected') {
+    return <div>Error loading restaurants</div>
+  }
 
   return (
     <>
