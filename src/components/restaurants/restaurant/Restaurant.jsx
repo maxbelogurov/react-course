@@ -1,14 +1,31 @@
 import styles from './Restaurant.module.scss'
 
-import {useSelector} from "react-redux";
-import {selectRestaurantById} from "../../../redux/restaurants";
+import {useSelector, useDispatch} from "react-redux";
+import {selectRestaurantById, selectRestaurantsRequestStatus} from "../../../redux/restaurants";
 
 import {useParams, Outlet, NavLink} from 'react-router-dom';
-
+import {useEffect} from 'react';
+import {getRestaurantById} from '../../../redux/restaurants/get-restaurants';
 
 export default function Restaurant() {
   const { restaurantId } = useParams()
+  const dispatch = useDispatch();
   const restaurant = useSelector((state) => selectRestaurantById(state, restaurantId) )
+  const requestStatus = useSelector(selectRestaurantsRequestStatus);
+
+  useEffect(() => {
+    if (!restaurant) {
+      dispatch(getRestaurantById(restaurantId));
+    }
+  }, [dispatch, restaurantId])
+
+  if (!restaurant || requestStatus === 'pending') {
+    return <div>Loading...</div>
+  }
+
+  if (requestStatus === 'rejected') {
+    return <div>Error loading restaurants</div>
+  }
 
   return (
     <div className={styles.restaurant}>

@@ -1,6 +1,6 @@
 import {createSlice, createEntityAdapter} from "@reduxjs/toolkit";
 
-import {getRestaurants} from './get-restaurants'
+import {getRestaurants, getRestaurantById} from './get-restaurants'
 
 const restaurantsAdapter = createEntityAdapter()
 
@@ -23,12 +23,16 @@ export const restaurantsSlice = createSlice({
       })
       .addCase(getRestaurants.rejected, (state) => { // Логика для обработки ошибок
         state.requestStatus = 'rejected'
-      });
+      })
+      .addCase(getRestaurantById.fulfilled, (state, { payload }) => { // Логика для успешного получения данных
+        state.requestStatus = 'fulfilled'
+        restaurantsAdapter.upsertOne(state, payload)
+      })
   }
 })
 
-export const { 
-  selectRestaurantsIds, 
-  selectRestaurantById, 
-  selectRestaurantsRequestStatus 
+export const {
+  selectRestaurantsIds,
+  selectRestaurantById,
+  selectRestaurantsRequestStatus
 } = restaurantsSlice.selectors
