@@ -1,20 +1,30 @@
 import styles from './MenuDetail.module.scss'
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import Counter from "../../common/counter/Counter";
 import ArrowBack from "../../icons/ArrowBack"
 import {UserContext} from "../../userContext/UserContext";
 
 import {useSelector, useDispatch} from "react-redux";
-import {selectMenuById} from "../../../redux/menu"
+import {selectMenuById, selectMenuRequestStatus} from "../../../redux/menu"
 import {addItem, decreaseItem, selectMenuQuantityInCartById} from '../../../redux/cart';
 import {useParams, Link} from 'react-router-dom';
 
+import {getRestaurantDishById} from "../../../redux/menu/get-menu";
+
 export default function MenuDetail() {
+  const dispatch = useDispatch()
   const { menuId } = useParams()
   const { user } = useContext(UserContext);
   const menu = useSelector((state) => selectMenuById(state, menuId))
+  const menuRequest = useSelector(selectMenuRequestStatus)
+
+  useEffect(() => {
+    if (!menu) {
+      dispatch(getRestaurantDishById(menuId))
+    }
+  }, [dispatch, menu, menuId])
+
   const count = useSelector((state) => selectMenuQuantityInCartById(state, menuId))
-  const dispatch = useDispatch();
 
   function increaseCount() {
     if (count < 5) {
@@ -25,6 +35,13 @@ export default function MenuDetail() {
     if (count > 0) {
       dispatch(decreaseItem({...menu}))
     }
+  }
+
+  if (menuRequest === 'pending') {
+    return <div>Dish is loading...</div>
+  }
+  if (!menu) {
+    return <div>Menu not found.</div>;
   }
 
   return (

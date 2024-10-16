@@ -1,5 +1,6 @@
 import {createEntityAdapter, createSlice} from "@reduxjs/toolkit";
 import {getRestaurantMenu} from './get-menu';
+import {getRestaurantDishById} from "./get-menu";
 
 const menuAdapter = createEntityAdapter()
 
@@ -20,8 +21,15 @@ export const menuSlice = createSlice({
           state.requestStatus = 'fulfilled'
           menuAdapter.addMany(state, payload)
         })
-        .addCase(getRestaurantMenu.rejected, (state) => { // Логика для обработки ошибок
+        .addCase(getRestaurantMenu.rejected, (state) => {
           state.requestStatus = 'rejected'
+        })
+        .addCase(getRestaurantDishById.pending, (state) => {
+          state.requestStatus = 'pending'
+        })
+        .addCase(getRestaurantDishById.fulfilled, (state, { payload }) => {
+          state.requestStatus = 'fulfilled'
+          menuAdapter.upsertOne(state, payload)
         })
     }
   })

@@ -16,12 +16,13 @@ export default function Review({id}) {
   }
 
   const user = useSelector((state) => selectUserById(state, review.userId))
-  
+
   useEffect(() => {
     if (!user && userRequestStatus !== 'pending') {
       dispatch(getUsers());
     }
   }, [dispatch, user, userRequestStatus]);
+
   if (!user) {
     return  <div>Loading user...</div>;
   }
