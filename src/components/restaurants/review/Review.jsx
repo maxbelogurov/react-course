@@ -27,8 +27,6 @@ export default function Review({id}) {
     return  <div>Loading user...</div>;
   }
 
-
-
   return (
     <div className={styles.reviewItem}>
       <div className={styles.reviewHeader}>

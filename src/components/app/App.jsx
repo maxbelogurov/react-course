@@ -30,10 +30,10 @@ const router = createBrowserRouter([
             path: ':restaurantId',
             element: <Restaurant/>,
             children: [
-              // {
-              //   index: true,
-              //   element: <Navigate to='menu'/>
-              // },
+              {
+                index: true,
+                element: <Navigate to='menu'/>
+              },
               {
                 path: 'menu',
                 element: <MenuContainer/>,

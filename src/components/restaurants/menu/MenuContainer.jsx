@@ -2,7 +2,7 @@ import styles from './MenuContainer.module.scss'
 import {useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {useEffect} from 'react';
-import {selectRestaurantById, selectRestaurantsRequestStatus} from '../../../redux/restaurants';
+import {selectRestaurantById} from '../../../redux/restaurants';
 import {getRestaurantMenu} from '../../../redux/menu/get-menu';
 import {selectAllMenu, selectMenuRequestStatus} from '../../../redux/menu'
 import MenuTab from './MenuTab';
