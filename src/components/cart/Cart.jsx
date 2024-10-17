@@ -1,8 +1,7 @@
 import styles from "./Cart.module.scss"
-import Counter from '../common/counter/Counter';
 import CartItem from "./cartItem/CartItem";
 import {useSelector, useDispatch} from 'react-redux';
-import {addItem, decreaseItem, removeItem, clearCart, selectCartItems, selectCartTotal} from '../../redux/cart';
+import {clearCart, selectCartItems, selectCartTotal} from '../../redux/cart';
 
 export default function Cart() {
   const dispatch = useDispatch()

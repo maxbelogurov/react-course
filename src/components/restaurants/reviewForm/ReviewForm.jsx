@@ -1,47 +1,12 @@
 import styles from './ReviewForm.module.scss'
 import Counter from "../../common/counter/Counter";
 import Button from "../../ui/Button/Button";
-import {useState, useReducer} from "react";
+import {useReducer} from "react";
 import classNames from "classnames";
-const FORM_VALUE = {
-  name: '',
-  review: '',
-  rating: 1,
-}
-
-export const reducer = (state, action) => {
-  switch (action.type) {
-    case 'setName':
-      return {
-        ...state,
-        name: action.payload
-      }
-    case 'setReview':
-      return {
-        ...state,
-        review: action.payload
-      }
-    case 'ratingDecrease':
-      return {
-        ...state,
-        rating: state.rating > 1 ? state.rating - 1 : 1
-      }
-    case 'ratingIncrease':
-      return {
-        ...state,
-        rating: state.rating < 5 ? state.rating + 1 : 5
-      }
-    case 'resetForm':
-      return {
-        ...FORM_VALUE
-      }
-    default:
-      return state
-  }
-}
+import { formReducer, initialState } from './ReviewFormReducer';
 
 export default function ReviewForm() {
-  const [form, dispatch] = useReducer(reducer, FORM_VALUE)
+  const [form, dispatch] = useReducer(formReducer, initialState)
   const { name, review, rating } = form
 
   return (

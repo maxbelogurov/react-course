@@ -8,7 +8,6 @@ export default function ProgressBar() {
     const webPageHeight = document.documentElement.scrollHeight
     const windowHeight = window.innerHeight
     const scrollPercent = ( pageYOffset * 100 / (webPageHeight - windowHeight) )
-    const progressBar = document.getElementById('progressBar')
     setBarWidth(Math.round(scrollPercent))
   }
 

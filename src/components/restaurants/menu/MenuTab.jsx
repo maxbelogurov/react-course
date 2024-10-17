@@ -5,6 +5,11 @@ import {selectMenuById} from "../../../redux/menu"
 
 export default function MenuTab({id}) {
   const menu = useSelector((state) => selectMenuById(state, id))
+
+  if (!menu) {
+    return null
+  }
+
   return (
     <NavLink to={`/dish/${id}`} className={styles.menuTab}>
       {menu.name}
