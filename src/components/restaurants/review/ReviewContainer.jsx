@@ -5,7 +5,7 @@ import {useParams} from 'react-router-dom';
 import {useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {selectRestaurantById} from '../../../redux/restaurants';
-import {selectReviews, selectReviewsRequestStatus} from '../../../redux/reviews'
+import {selectReviewsRequestStatus} from '../../../redux/reviews'
 import {getRestaurantReviews} from "../../../redux/reviews/get-reviews";
 
 export default function ReviewContainer() {
@@ -13,19 +13,12 @@ export default function ReviewContainer() {
   const dispatch = useDispatch();
   const requestReviewsStatus = useSelector(selectReviewsRequestStatus);
 
-  const restaurantReviewsIds = useSelector((state) => selectRestaurantById(state, restaurantId) ).reviews
-  const allReviews = useSelector(selectReviews)
-
-
-  const checkReview = restaurantReviewsIds.every((id) => { //проверяем есть ли отзывы данного ресторана в store
-    return allReviews.hasOwnProperty(id)
-  })
+  const restaurant = useSelector((state) => selectRestaurantById(state, restaurantId) )
+  const restaurantReviewsIds = restaurant.reviews
 
   useEffect(() => {
-    if (!checkReview && requestReviewsStatus !== 'pending') {
-      dispatch(getRestaurantReviews(restaurantId));
-    }
-  }, [dispatch, checkReview, requestReviewsStatus, restaurantId])
+    dispatch(getRestaurantReviews(restaurantId));
+  }, [dispatch])
 
   if (requestReviewsStatus === 'pending') {
     return (
@@ -39,7 +32,6 @@ export default function ReviewContainer() {
     <>
       <div className={styles.reviewsWrap}>
         {restaurantReviewsIds.map(reviewId =>
-          // <ul key={reviewId}>{reviewId}</ul>
           <Review key={reviewId} id={reviewId} />
         )}
       </div>

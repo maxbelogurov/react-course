@@ -5,7 +5,7 @@ import {selectRestaurantById, selectRestaurantsRequestStatus} from "../../../red
 
 import {useParams, Outlet, NavLink} from 'react-router-dom';
 import {useEffect} from 'react';
-import {getRestaurantById} from '../../../redux/restaurants/get-restaurants';
+import {getRestaurantById} from '../../../redux/restaurants/get-restaurants-by-id';
 
 export default function Restaurant() {
   const { restaurantId } = useParams()
@@ -14,9 +14,7 @@ export default function Restaurant() {
   const requestStatus = useSelector(selectRestaurantsRequestStatus);
 
   useEffect(() => {
-    if (!restaurant) {
       dispatch(getRestaurantById(restaurantId));
-    }
   }, [dispatch, restaurantId])
 
   if (!restaurant || requestStatus === 'pending') {

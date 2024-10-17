@@ -13,9 +13,7 @@ export default function RestaurantsPage() {
   const requestStatus = useSelector(selectRestaurantsRequestStatus);
 
   useEffect(() => {
-    if (restaurantsIds.length === 0) {
-      dispatch(getRestaurants());
-    }
+    dispatch(getRestaurants());
   },[dispatch])
 
   if (requestStatus === 'pending') {

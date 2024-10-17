@@ -9,7 +9,7 @@ import {selectMenuById, selectMenuRequestStatus} from "../../../redux/menu"
 import {addItem, decreaseItem, selectMenuQuantityInCartById} from '../../../redux/cart';
 import {useParams, Link} from 'react-router-dom';
 
-import {getRestaurantDishById} from "../../../redux/menu/get-menu";
+import {getRestaurantDishById} from "../../../redux/menu/get-restaurant-dish-by-id";
 
 export default function MenuDetail() {
   const dispatch = useDispatch()

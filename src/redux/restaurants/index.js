@@ -1,6 +1,7 @@
 import {createSlice, createEntityAdapter} from "@reduxjs/toolkit";
 
-import {getRestaurants, getRestaurantById} from './get-restaurants'
+import {getRestaurants} from './get-restaurants'
+import {getRestaurantById} from './get-restaurants-by-id'
 
 const restaurantsAdapter = createEntityAdapter()
 
