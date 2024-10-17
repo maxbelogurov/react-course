@@ -18,7 +18,7 @@ export default function ReviewContainer() {
 
   useEffect(() => {
     dispatch(getRestaurantReviews(restaurantId));
-  }, [dispatch])
+  }, [dispatch, restaurantId])
 
   if (requestReviewsStatus === 'pending') {
     return (

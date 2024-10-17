@@ -17,7 +17,7 @@ export default function MenuContainer() {
 
   useEffect(() => {
       dispatch(getRestaurantMenu(restaurantId));
-  }, [dispatch])
+  }, [dispatch, restaurantId])
 
   if (requestStatus === 'pending') {
     return (

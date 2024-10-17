@@ -19,10 +19,10 @@ export default function MenuDetail() {
   const menuRequest = useSelector(selectMenuRequestStatus)
 
   useEffect(() => {
-    if (!menu) {
+    // if (!menu) {
       dispatch(getRestaurantDishById(menuId))
-    }
-  }, [dispatch, menu, menuId])
+    // }
+  }, [dispatch, menuId])
 
   const count = useSelector((state) => selectMenuQuantityInCartById(state, menuId))
 
