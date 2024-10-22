@@ -19,7 +19,7 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addItem(state, action) {
-      const {id, name, price, quantity} = action.payload
+      const {id, name, price} = action.payload
       if (state.items[id]) {
         if (state.items[id].quantity < 5) {
           state.items[id].quantity += 1

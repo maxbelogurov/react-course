@@ -1,12 +1,29 @@
 import styles from './Review.module.scss'
 
-import {useSelector} from "react-redux";
-import {selectReviewById} from "../../../redux/reviews";
-import {selectUserById} from "../../../redux/users";
+import {useDispatch, useSelector} from "react-redux";
+import {selectReviewById } from "../../../redux/reviews";
+import {selectUserById, selectUsersRequestStatus} from "../../../redux/users";
+import {useEffect} from "react";
+import {getUsers} from "../../../redux/users/get-users";
+
 
 export default function Review({id}) {
+  const dispatch = useDispatch();
+  const userRequestStatus = useSelector(selectUsersRequestStatus)
   const review = useSelector((state) =>  selectReviewById(state, id))
+  if (!review) {
+    return <div>Loading review...</div>
+  }
+
   const user = useSelector((state) => selectUserById(state, review.userId))
+
+  useEffect(() => {
+      dispatch(getUsers());
+  }, [dispatch]);
+
+  if (userRequestStatus === 'pending' || !user) {
+    return  <div>Loading user...</div>;
+  }
 
   return (
     <div className={styles.reviewItem}>
