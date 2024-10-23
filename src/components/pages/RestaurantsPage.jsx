@@ -1,13 +1,12 @@
 import RestaurantTab from "../restaurants/tab/RestaurantTab"
 import styles from "./RestaurantsPage.module.scss"
-import { Outlet } from 'react-router-dom'
 
 import {useDispatch, useSelector} from "react-redux";
 import { selectRestaurantsIds, selectRestaurantsRequestStatus } from "../../redux/restaurants";
 import { useEffect } from "react";
 import { getRestaurants } from "../../redux/restaurants/get-restaurants";
 
-export default function RestaurantsPage() {
+export default function RestaurantsPage({children}) {
   const dispatch = useDispatch();
   const restaurantsIds = useSelector(selectRestaurantsIds);
   const requestStatus = useSelector(selectRestaurantsRequestStatus);
@@ -32,7 +31,7 @@ export default function RestaurantsPage() {
         )}
       </div>
       <div>
-        <Outlet/>
+      {children}
       </div>
     </>
   )
