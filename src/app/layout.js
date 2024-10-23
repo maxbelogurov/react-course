@@ -1,3 +1,4 @@
+import '../styles/main.scss'
 export const metadata = {
   title: "My Restaurants",
   description: "First project on React + Next"
