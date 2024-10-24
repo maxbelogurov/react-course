@@ -1,17 +1,16 @@
 import Button from '../../ui/Button/Button';
 import {useSelector} from 'react-redux';
 import {selectRestaurantById} from '../../../redux/restaurants';
-import {NavLink} from 'react-router-dom';
+import Link from 'next/link';
 
 export default function RestaurantTab({id}) {
 
   const restaurant = useSelector((state) => selectRestaurantById(state, id))
   return (
-    <NavLink to={id}>
+    <Link href={`/restaurants/${id}`}>
       <Button>
         { restaurant.name }
       </Button>
-    </NavLink>
-
+    </Link>
   )
 }
