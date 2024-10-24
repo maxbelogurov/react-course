@@ -1,5 +1,7 @@
+'use client'
+
 import styles from './MenuTab.module.scss'
-import {NavLink} from 'react-router-dom';
+import Link from 'next/link';
 import {useSelector} from 'react-redux';
 import {selectMenuById} from "../../../redux/menu"
 
@@ -11,8 +13,8 @@ export default function MenuTab({id}) {
   }
 
   return (
-    <NavLink to={`/dish/${id}`} className={styles.menuTab}>
+    <Link href={`/dish/${id}`} className={styles.menuTab}>
       {menu.name}
-    </NavLink>
+    </Link>
   )
 }

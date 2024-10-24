@@ -1,5 +1,7 @@
+'use client'
+
 import styles from './MenuContainer.module.scss'
-import {useParams} from 'react-router-dom';
+import {useParams} from 'next/navigation';
 import {useDispatch, useSelector} from 'react-redux';
 import {useEffect} from 'react';
 import {selectRestaurantById} from '../../../redux/restaurants';

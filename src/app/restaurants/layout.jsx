@@ -1,9 +1,8 @@
-
+import RestaurantsPage from '../../components/pages/RestaurantsPage';
 export default function RestaurantsLayout({ children }) {
     return (
-      <div>
-        <h1>Restaurants</h1>
+      <RestaurantsPage>
         {children}
-      </div>
+      </RestaurantsPage>
     );
   }

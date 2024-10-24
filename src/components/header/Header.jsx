@@ -10,8 +10,8 @@ import WatchDisplay from '../watchDisplay/WatchDisplay'
 
 export default function Header() {
 
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const { user, logInUser, logOutUser } = useContext(UserContext);
+  let { theme, toggleTheme } = useContext(ThemeContext);
+  let { user, logInUser, logOutUser } = useContext(UserContext);
   return (
     <header className={styles.header}>
       <h1>React course</h1>

@@ -1,3 +1,5 @@
+'use client'
+
 import RestaurantTab from "../restaurants/tab/RestaurantTab"
 import styles from "./RestaurantsPage.module.scss"
 
@@ -18,7 +20,7 @@ export default function RestaurantsPage({children}) {
   if (requestStatus === 'pending') {
     return <div>Loading...</div>
   }
-  
+
   if (requestStatus === 'rejected') {
     return <div>Error loading restaurants</div>
   }
