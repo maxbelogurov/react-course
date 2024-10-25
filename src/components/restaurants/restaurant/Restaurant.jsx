@@ -1,13 +1,16 @@
+'use client'
+
 import styles from './Restaurant.module.scss'
 
 import {useSelector, useDispatch} from "react-redux";
 import {selectRestaurantById, selectRestaurantsRequestStatus} from "../../../redux/restaurants";
 
-import {useParams, Outlet, NavLink} from 'react-router-dom';
+import {useParams} from 'next/navigation';
+import Link from "next/link";
 import {useEffect} from 'react';
 import {getRestaurantById} from '../../../redux/restaurants/get-restaurants-by-id';
 
-export default function Restaurant() {
+export default function Restaurant({children}) {
   const { restaurantId } = useParams()
   const dispatch = useDispatch();
   const restaurant = useSelector((state) => selectRestaurantById(state, restaurantId) )
@@ -30,17 +33,11 @@ export default function Restaurant() {
       <h2 className={styles.restaurantName}>{ restaurant.name }</h2>
 
       <div className={styles.tabs}>
-        <NavLink to={'menu'}
-              className={({isActive}) => isActive ? `${styles.tabItem} ${styles.active}` : `${styles.tabItem}`}>
-          Menu
-        </NavLink>
-        <NavLink to={'reviews'}
-                 className={({isActive}) => isActive ? `${styles.tabItem} ${styles.active}` : `${styles.tabItem}`}>
-          Reviews
-        </NavLink>
+        <Link href={`/restaurants/${restaurantId}/menu/`}> Menu </Link>
+        <Link href={`/restaurants/${restaurantId}/reviews/`}> Reviews </Link>
       </div>
 
-      <Outlet/>
+      {children}
 
     </div>
   )

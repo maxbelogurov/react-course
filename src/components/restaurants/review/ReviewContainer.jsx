@@ -1,7 +1,9 @@
+'use client'
+
 import styles from './ReviewsContainer.module.scss'
 import Review from './Review'
 import ReviewForm from '../reviewForm/ReviewForm';
-import {useParams} from 'react-router-dom';
+import {useParams} from 'next/navigation';
 import {useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {selectRestaurantById} from '../../../redux/restaurants';

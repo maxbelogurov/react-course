@@ -1,7 +1,9 @@
+'use client'
+
 import styles from './Header.module.scss'
 import { useContext } from 'react';
-import {ThemeContext} from "../themeContext/ThemeContext";
-import {UserContext} from "../userContext/UserContext";
+import { ThemeContext } from "../themeContext/ThemeContext";
+import { UserContext } from "../userContext/UserContext";
 import MainNav from '../mainNav/MainNav';
 import Button from "../ui/Button/Button";
 import WatchDisplay from '../watchDisplay/WatchDisplay'

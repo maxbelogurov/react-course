@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './MenuDetail.module.scss'
 import {useContext, useEffect} from "react";
 import Counter from "../../common/counter/Counter";
@@ -7,7 +9,7 @@ import {UserContext} from "../../userContext/UserContext";
 import {useSelector, useDispatch} from "react-redux";
 import {selectMenuById, selectMenuRequestStatus} from "../../../redux/menu"
 import {addItem, decreaseItem, selectMenuQuantityInCartById} from '../../../redux/cart';
-import {useParams, Link} from 'react-router-dom';
+import {useParams} from 'next/navigation';
 
 import {getRestaurantDishById} from "../../../redux/menu/get-restaurant-dish-by-id";
 
@@ -46,12 +48,12 @@ export default function MenuDetail() {
 
   return (
     <div className={styles.menuItem}>
-      <Link to={-1} className={styles.backBtn}>
-        <ArrowBack/>
-        <span>
-          back
-        </span>
-      </Link>
+      {/*<Link to={-1} className={styles.backBtn}>*/}
+      {/*  <ArrowBack/>*/}
+      {/*  <span>*/}
+      {/*    back*/}
+      {/*  </span>*/}
+      {/*</Link>*/}
       <div>
         <p className={styles.menuItemName}>{ menu.name }</p>
         {menu.ingredients.length > 0 ? menu.ingredients.map(ingredient =>
